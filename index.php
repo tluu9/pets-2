@@ -50,7 +50,11 @@ $f3->route('GET /@animal', function($f3, $params) {
             default:
                 $f3->error(404);
         }
+});
 
+$f3->route('GET /order', function() {
+    $view = new Template();
+    echo $view->render('views/form1.html');
 });
 
 //Run fat free F3
