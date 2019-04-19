@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pets 2</title>
-</head>
-<body>
-
-<h3>My pets</h3>
-
-<a href ='order'> Order a pet </a>
-
-</body>
-</html>
 
 <?php
 
