@@ -1,7 +1,4 @@
-
 <?php
-
-
 //Turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -21,6 +18,13 @@ $f3->route('GET /', function()
     //Display a view-set view as new template and echo out the view
     $view = new Template();
     echo $view->render('views/home.html');
+});
+
+$f3->route('GET /@animal', function($f3, $params)
+{
+    //Display a view-set view as new template and echo out the view
+    //$view = new Template();
+    //echo $view->render('views/home.html');
 });
 
 //Run fat free F3
