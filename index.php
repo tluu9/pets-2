@@ -9,6 +9,7 @@ require_once('vendor/autoload.php');
 
 //Create an instance of the Base class/ instantiate Fat-Free
 $f3 = Base::instance();
+$f3 -> set('colors', array('pink', 'green', 'blue'));
 
 //Turn on Fat-free error reporting/Debugging
 $f3->set('DEBUG',3);
