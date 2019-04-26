@@ -10,9 +10,10 @@
 
     <ul>
         <label>Color</label>
-        <select>
-        <repeat group="{{@colors}}" value="{{@color}}">
-            <option value="{{@color}}">{{@color}}</option>
+        <select class="form-control" name ="color" id="color">
+            <option>Select a color--</option>
+        <repeat group="{{@colors}}" value="{{@colorOption}}">
+            <option >{{@colorOption}}</option>
         </repeat>
         </select>
         <input type="submit" value="Submit">
