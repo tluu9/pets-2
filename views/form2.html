@@ -5,15 +5,18 @@
     <title>Color</title>
 </head>
 <body>
-<h1>Color</h1>
+
 <form method="post" action="summary" value ="green">
     <label>Color</label>
-    <select class="form-control" id="color" name="color">
-        <option value="pink">Pink</option>
-        <option value="red">Red</option>
-        <option value="black">Black</option>
-        <option value="blue">Blue</option>
-    </select>
+    <ul>
+        <label>Color</label>
+        <select>
+        <repeat group="{{@colors}}" value="{{@color}}">
+            <option value="{{@color}}">{{@color}}</option>
+        </repeat>
+        </select>
+    </ul>
+
     <input type="submit" value="Submit">
 </form>
 </body>
