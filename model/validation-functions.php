@@ -11,11 +11,8 @@
         return in_array($color, $f3->get('color'));
     }
 
-    function validSting($type)
+
+    function validString($animal)
     {
-        if (!empty($type) && ctype_alpha($type))
-        {
-            return true;
-        }
+        return !empty($animal)&&ctype_alpha($animal);
     }
-?>
