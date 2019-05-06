@@ -65,9 +65,10 @@ $f3->route('GET|POST /order',
     if(isset($_POST['animal'])){
 
         $animal = $_POST['animal'];
-        if(validString($animal)){
+        if(validString($animal))
+        {
             $_SESSION['animal'] = $animal;
-            $f3->reroute('/order2');
+            $f3->reroute('/color');
         }else{
             $f3->set("errors['animal']", "Please enter an animal.");
         }
@@ -76,15 +77,23 @@ $f3->route('GET|POST /order',
     echo $view->render('views/form1.html');
 });
 
-$f3->route('POST /color', function() {
-
-    $_SESSION['animal'] = $_POST['animal'];
-
-    $view = new Template();
-    echo $view->render('views/form2.html');
+$f3->route('GET|POST /color', function ($f3)
+{
+    if(isset($_POST['color'])) {
+        $color = $_POST['color'];
+        if(validColor($color)) {
+            $_SESSION['color'] = $color;
+            $f3->reroute('/result');
+        }
+        else {
+            $f3->set("errors['color']", "Please enter a color");
+        }
+    }
+    $view=new Template();
+    echo $view->render( 'views/form2.html');
 });
 
-$f3->route('POST /summary', function() {
+$f3->route('GET|POST /summary', function() {
 
     $_SESSION['color'] = $_POST['color'];
 
