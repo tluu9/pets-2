@@ -8,11 +8,11 @@
     function validColor($color)
     {
         global $f3;
-        return in_array($color, $f3->get('color'));
+        return in_array($color, $f3->get('colors'));
     }
 
 
-    function validString($animal)
+    function validString($string)
     {
-        return !empty($animal)&&ctype_alpha($animal);
+        return $string !== "" && !is_numeric($string);
     }
