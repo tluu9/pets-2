@@ -6,8 +6,10 @@
 </head>
 <body>
 <h1>Order</h1>
-<form method="post" action="color">
-    <label>Animal
+<form method="post" action="#">
+    <label>Animal <check if="{{isset(@errors['animal'])}}">
+                    <p>{{@errors['animal']}}</p>
+                  </check>
         <input type="text" name="animal">
     </label>
     <input type="submit" value="Next">

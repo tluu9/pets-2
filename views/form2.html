@@ -5,16 +5,19 @@
     <title>Color</title>
 </head>
 <body>
-<h1> Color</h1>
-<form method="post" action="summary" value ="green">
+<check if="{{ isset(@errors['color'])}}">
+    <p>{{ @errors['color'] }}</p>
+</check>
 
+<form method="post" action="summary" >
+    <h1> Color</h1>
     <ul>
         <label>Color</label>
-        <select class="form-control" name ="color" id="color">
-            <option>Select a color--</option>
-        <repeat group="{{@colors}}" value="{{@colorOption}}">
-            <option >{{@colorOption}}</option>
-        </repeat>
+        <select name="color">
+            <option>--Select a color--</option>
+            <repeat group="{{@colors}}" value="{{@color}}">
+                <option>{{@color}}</option>
+            </repeat>
         </select>
         <input type="submit" value="Submit">
     </ul>
