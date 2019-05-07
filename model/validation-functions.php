@@ -12,7 +12,7 @@
     }
 
 
-    function validString($string)
-    {
-        return $string !== "" && !is_numeric($string);
-    }
+function validString($string)
+{
+    return $string !== "" && ctype_alpha($string);
+}
