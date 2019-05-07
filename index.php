@@ -10,7 +10,7 @@ require_once('model/validation-functions.php');
 
 //Create an instance of the Base class/ instantiate Fat-Free
 $f3 = Base::instance();
-$f3 -> set('colors', array('pink', 'green', 'blue'));
+$f3 -> set('colors', array('black', 'white', 'yellow'));
 
 //Turn on Fat-free error reporting/Debugging
 $f3->set('DEBUG',3);
@@ -18,17 +18,10 @@ $f3->set('DEBUG',3);
 //Define a default route (use backlash / )
 $f3->route('GET /', function()
 {
-    //Display a view-set view as new template and echo out the view
-    $view = new Template();
-    echo $view->render('views/home.html');
+    echo"<h1>My Pets</h1>
+    <br><p><a href='order'>Order a pet</a></p>";
 });
 
-$f3->route('GET /@animal', function($f3, $params)
-{
-    //Display a view-set view as new template and echo out the view
-    //$view = new Template();
-    //echo $view->render('views/home.html');
-});
 
 //Define a route with a parameter
 $f3->route('GET /@animal', function($f3, $params) {
@@ -60,8 +53,6 @@ $f3->route('GET|POST /order',
 
     function($f3) {
 
-    $_SESSION = array();
-
     if(isset($_POST['animal'])){
 
         $animal = $_POST['animal'];
@@ -83,7 +74,7 @@ $f3->route('GET|POST /color', function ($f3)
         $color = $_POST['color'];
         if(validColor($color)) {
             $_SESSION['color'] = $color;
-            $f3->reroute('/result');
+            $f3->reroute('/summary');
         }
         else {
             $f3->set("errors['color']", "Please enter a color");
@@ -94,8 +85,6 @@ $f3->route('GET|POST /color', function ($f3)
 });
 
 $f3->route('GET|POST /summary', function() {
-
-    $_SESSION['color'] = $_POST['color'];
 
     $view = new Template();
     echo $view->render('views/results.html');
